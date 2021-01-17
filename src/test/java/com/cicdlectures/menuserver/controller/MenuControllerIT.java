@@ -1,6 +1,6 @@
 package com.cicdlectures.menuserver.controller;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.net.URL;
 import java.util.List;
