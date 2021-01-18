@@ -1,4 +1,4 @@
-name : project_cantina
+name : project_cantina_push_pull
 on : [push, pull_request]
 jobs:
   compilation_and_test:
@@ -6,5 +6,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2 
     - run: sudo apt-get update && sudo apt-get install -y maven # Installation of maven
-    - run: mvn clean
     - run: mvn verify

@@ -1,0 +1,36 @@
+name: project_cantina_tag
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - '*'
+jobs:
+  publish:
+    runs-on: ubuntu-18.04
+    steps:
+      - name : get code
+        uses : actions/checkout@v2 
+      - name : installation of name
+        run: sudo apt-get update && sudo apt-get install -y maven # Installation of maven
+      - name : compile and run test
+        run: mvn verify
+      - name : release creation
+        id : release_creation
+        uses: actions/create-release@v1
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name : upload jar
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release_creation.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: ./target/cantina.menu-1.0-SNAPSHOT.jar
+          asset_name: cantina.menu.jar
+          asset_content_type: application/java-archive
