@@ -4,6 +4,9 @@ jobs:
   compilation_and_test:
     runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@v2 
-    - run: sudo apt-get update && sudo apt-get install -y maven # Installation of maven
-    - run: mvn verify
+    - name : get code
+      uses: actions/checkout@v2 
+    - name : installation of maven
+      run: sudo apt-get update && sudo apt-get install -y maven 
+    - name : compile and run test
+      run: mvn verify
