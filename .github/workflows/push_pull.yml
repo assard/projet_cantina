@@ -10,8 +10,9 @@ jobs:
       run : sudo apt-get update && sudo apt-get install -y maven 
     - name : compile and run test
       run : mvn verify
-    - name : get unit test report
+    - name : copy unit test report
       run : mkdir unit_test_report && cp target/surefire-reports unit_test_report
+    - name : upload unit test report
       uses : actions/upload-artifact@v2
       with : 
         name : Unit test report
