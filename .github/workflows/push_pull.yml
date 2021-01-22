@@ -12,8 +12,9 @@ jobs:
       run : mvn verify
     - name : copy unit test report
       run : mkdir unit_test_report && cp -r target/surefire-reports test_report
-    - name : copy integration test report
-      run : cp -r target/failsafe-reports test_report
+    # To decomment when integration file are ready
+    # - name : copy integration test report
+    #   run : cp -r target/failsafe-reports test_report
     - name : upload test reports
       uses : actions/upload-artifact@v2
       with : 
