@@ -11,7 +11,7 @@ jobs:
     - name : compile and run test
       run : mvn verify
     - name : copy unit test report
-      run : mkdir unit_test_report && cp target/surefire-reports unit_test_report
+      run : mkdir unit_test_report && cp -r target/surefire-reports unit_test_report
     - name : upload unit test report
       uses : actions/upload-artifact@v2
       with : 
