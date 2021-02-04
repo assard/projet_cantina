@@ -48,4 +48,3 @@ jobs:
           asset_path: ./target/cantina.menu-1.0-SNAPSHOT.jar
           asset_name: cantina.menu.jar
           asset_content_type: application/java-archive
-      
