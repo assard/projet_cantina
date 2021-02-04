@@ -1,0 +1,12 @@
+name : project_cantina_push_pull
+on : [push, pull_request]
+jobs:
+  compilation_and_test:
+    runs-on: ubuntu-18.04
+    steps:
+    - name : get code
+      uses: actions/checkout@v2 
+    - name : installation of maven
+      run: sudo apt-get update && sudo apt-get install -y maven 
+    - name : compile and run test
+      run: mvn verify
