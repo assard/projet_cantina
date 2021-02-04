@@ -1,25 +1,25 @@
-// package com.cicdlectures.menuserver.service;
+package com.cicdlectures.menuserver.service;
 
-// import java.util.HashSet;
-// import java.util.Arrays;
-// import java.util.List;
+import java.util.HashSet;
+import java.util.Arrays;
+import java.util.List;
 
-// import com.cicdlectures.menuserver.repository.MenuRepository;
-// import com.cicdlectures.menuserver.repository.DishRepository;
-// import com.cicdlectures.menuserver.dto.MenuDto;
-// import com.cicdlectures.menuserver.dto.DishDto;
-// import com.cicdlectures.menuserver.model.Menu;
-// import com.cicdlectures.menuserver.model.Dish;
+import com.cicdlectures.menuserver.repository.MenuRepository;
+import com.cicdlectures.menuserver.repository.DishRepository;
+import com.cicdlectures.menuserver.dto.MenuDto;
+import com.cicdlectures.menuserver.dto.DishDto;
+import com.cicdlectures.menuserver.model.Menu;
+import com.cicdlectures.menuserver.model.Dish;
 
-// import org.junit.jupiter.api.BeforeEach;
-// import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-// import static org.mockito.Mockito.mock;
-// import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
-// import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-// public class ListMenuServiceTests {
+public class ListMenuServiceTests {
 
 //   private ListMenuService subject;
 
@@ -43,5 +43,10 @@
 
 //     assertEquals(MenuDto.fromModelIterable(existingMenus), got);
 //   }
-// }
+
+    @Test
+    public void testExample(){
+        assertEquals(2,1+1);
+    }
+}
 
