@@ -13,13 +13,13 @@ public class MenuDtoTest {
 
 
     @Test
-    public void TestfromDto() {
+    public void TestfrommodelMenu() {
         Menu menu = new Menu(Long.valueOf(1), "Christmas menu", new HashSet<>(Arrays.asList(new Dish(Long.valueOf(1), "Turkey", null), new Dish(Long.valueOf(2), "Pecan Pie", null))));
 
-        MenuDto newMenu = new MenuDtoTest(Long.valueOf(1), "Christmas menu",
-                new HashSet<DishDtoTest>(Arrays.asList(new DishDtoTest(Long.valueOf(1), "Turkey"), new DishDtoTest(Long.valueOf(2), "Pecan Pie"))));
-        Menu menu2 =menu.fromDto(newMenu);
-        assertEquals(menu.getName(), menu2.getName());
+        MenuDto newMenu = new MenuDto(Long.valueOf(1), "Christmas menu",
+                new HashSet<DishDto>(Arrays.asList(new DishDto(Long.valueOf(1), "Turkey"), new DishDto(Long.valueOf(2), "Pecan Pie"))));
+        MenuDto menudto  = newMenu.fromModel(menu);
+        assertEquals(menudto.getName(), newMenu.getName());
 
     }
 
