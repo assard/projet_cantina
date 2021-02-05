@@ -21,32 +21,29 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ListMenuServiceTests {
 
-//   private ListMenuService subject;
+   private ListMenuService subject;
 
-//   private MenuRepository menuRepository;
+   private MenuRepository menuRepository;
 
-//   @BeforeEach
-//   public void init() {
-//     menuRepository = mock(MenuRepository.class);
-//     subject = new ListMenuService(menuRepository);
-//   }
+   @BeforeEach
+   public void init() {
+     menuRepository = mock(MenuRepository.class);
+     subject = new ListMenuService(menuRepository);
+   }
 
-//   @Test
-//   public void listsKnownMenus() {
-//     Iterable<Menu> existingMenus = Arrays.asList(
-//       new Menu(Long.valueOf(1), "Christmas menu", new HashSet<>(Arrays.asList(new Dish(Long.valueOf(1), "Turkey", null), new Dish(Long.valueOf(2), "Pecan Pie", null)))),
-//       new Menu(Long.valueOf(1), "New year's eve menu", new HashSet<>(Arrays.asList(new Dish(Long.valueOf(3), "Potatos", null), new Dish(Long.valueOf(4), "Tiramisu", null)))));
+   @Test
+   public void listsKnownMenus() {
+     Iterable<Menu> existingMenus = Arrays.asList(
+       new Menu(Long.valueOf(1), "Christmas menu", new HashSet<>(Arrays.asList(new Dish(Long.valueOf(1), "Turkey", null), new Dish(Long.valueOf(2), "Pecan Pie", null)))),
+       new Menu(Long.valueOf(1), "New year's eve menu", new HashSet<>(Arrays.asList(new Dish(Long.valueOf(3), "Potatos", null), new Dish(Long.valueOf(4), "Tiramisu", null)))));
 
-//     when(menuRepository.findAll()).thenReturn(existingMenus);
+     when(menuRepository.findAll()).thenReturn(existingMenus);
 
-//     List<MenuDto> got = subject.listMenus();
+     List<MenuDto> got = subject.listMenus();
 
-//     assertEquals(MenuDto.fromModelIterable(existingMenus), got);
-//   }
+     assertEquals(MenuDto.fromModelIterable(existingMenus), got);
+   }
 
-    @Test
-    public void testExample(){
-        assertEquals(2,1+1);
-    }
+
 }
 
