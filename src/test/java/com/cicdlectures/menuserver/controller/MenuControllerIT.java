@@ -81,7 +81,9 @@
 
      MenuDto[] gotMenus = response.getBody();
 
+
      assertEquals(HttpStatus.OK, response.getStatusCode());
+
      assertArrayEquals(wantMenus, gotMenus);
    }
 
@@ -100,8 +102,10 @@
 
      ResponseEntity<MenuDto> response = this.template.postForEntity(url.toString(), request, MenuDto.class);
 
+
      MenuDto gotMenu = response.getBody();
      assertEquals(wantMenu, gotMenu);
+
 
    }
  }
