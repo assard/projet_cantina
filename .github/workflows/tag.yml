@@ -1,0 +1,50 @@
+name: project_cantina_tag
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - '*'
+jobs:
+  publish:
+    runs-on: ubuntu-18.04
+    steps:
+      - name : get code
+        uses : actions/checkout@v2 
+      - name : installation of maven
+        run: sudo apt-get update && sudo apt-get install -y maven 
+      - name : compile and run test
+        run: mvn verify
+      - name : copy unit test report
+        run : mkdir unit_test_report && cp -r target/surefire-reports unit_test_report
+      - name : upload unit test reports
+        uses : actions/upload-artifact@v2
+        with : 
+          name : Unit_test report
+          path : unit_test_report
+      - name : copy integration test report
+        run : mkdir integration_test_report && cp -r target/failsafe-reports integration_test_report
+      - name : upload integration test reports
+        uses : actions/upload-artifact@v2
+        with :
+          name : Integration_test report
+          path : integration_test_report
+      - name : release creation
+        id : release_creation
+        uses: actions/create-release@v1
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name : upload jar
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release_creation.outputs.upload_url }} 
+          asset_path: ./target/cantina.menu-1.0-SNAPSHOT.jar
+          asset_name: cantina.menu.jar
+          asset_content_type: application/java-archive
