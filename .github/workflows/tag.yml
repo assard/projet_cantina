@@ -22,13 +22,13 @@ jobs:
         with : 
           name : Unit_test report
           path : unit_test_report
-        # - name : copy integration test report
-        #   run : mkdir integration_test_report && cp -r target/failsafe-reports integration_test_report
-      # - name : upload integration test reports
-      #   uses : actions/upload-artifact@v2
-      #   with : 
-      #     name : Integration_test report
-      #     path : integration_test_report
+      - name : copy integration test report
+        run : mkdir integration_test_report && cp -r target/failsafe-reports integration_test_report
+      - name : upload integration test reports
+        uses : actions/upload-artifact@v2
+        with :
+         name : Integration_test report
+         path : integration_test_report
       - name : release creation
         id : release_creation
         uses: actions/create-release@v1
