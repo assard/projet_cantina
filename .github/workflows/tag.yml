@@ -27,8 +27,8 @@ jobs:
       - name : upload integration test reports
         uses : actions/upload-artifact@v2
         with :
-         name : Integration_test report
-         path : integration_test_report
+          name : Integration_test report
+          path : integration_test_report
       - name : release creation
         id : release_creation
         uses: actions/create-release@v1
