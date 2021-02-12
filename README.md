@@ -5,6 +5,13 @@ Project of Ci/Cd's course
 
 Cette application est le site pour gérer les menus de la Cantina. Ainsi tu peux venir jeter un oeil quand, à 11h55 tu meurs de faim en cours !
 
+# Dépendances
+
+Ce projet a été réalisé avec les versions suivantes : 
+
+- Java 11
+- Maven 3
+
 # Menu Server
 
 Cette application est une API REST(-ish) pour gérer les menus de la Cantina.
