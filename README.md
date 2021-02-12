@@ -1,9 +1,6 @@
 # projet_cantina
-Project of Ci/Cd's course
 
-## Application
-
-Cette application est le site pour gérer les menus de la Cantina.
+Cette application est un site pour gérer les menus de la Cantina.
 
 Les tests, le fichier pom.xml et l'intégration continue ont fait l'objet d'une évaluation d'un cours sur le sujet que nous avons suivis lors de notre 3ème année d'étudiant en cycle ingénieur à l'ENSG-Géomatique.
 
