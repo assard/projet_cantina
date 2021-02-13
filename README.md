@@ -1,21 +1,37 @@
 # projet_cantina
-Project of Ci/Cd's course
 
-# Application
+Cette application est un site pour gérer les menus de la Cantina.
 
-Cette application est le site pour gérer les menus de la Cantina. Ainsi tu peux venir jeter un oeil quand, à 11h55 tu meurs de faim en cours !
+Les tests, le fichier pom.xml et l'intégration continue ont fait l'objet d'une évaluation d'un cours sur le sujet que nous avons suivis lors de notre 3ème année d'étudiant en cycle ingénieur à l'ENSG-Géomatique.
 
-# Menu Server
+## Dépendances
 
-Cette application est une API REST(-ish) pour gérer les menus de la Cantina.
+Ce projet a été réalisé avec les versions suivantes : 
 
-Je vous dirais bien comment la lancer, mais le précédent employé est parti sans laisser de documentation.
+- Java 11
+- Maven 3
+- Curl 7
 
-Il disait : "il suffit de lancer le script run.sh".
+## Compilation et exécution
 
+Pour compiler le projet, lancer les tests unitaires et les tests d'intégrations : 
+
+```
+mvn verify
+```
+
+L'application est disponible sur le port 8080 d'un serveur, vérifier que ce port est disponible avant de l'exécuter. 
+
+Pour exécuter le projet : 
+
+```
+java -jar target/cantina.menu-1.0-SNAPSHOT.jar 
+```
 ## Utilisation
 
-Les personnes du département "Quality Assurance" disent qu'on peut tester l'application manuellement avec ces requêtes HTTP :
+Cette application est une API REST pour gérer les menus de la Cantina.
+
+L'application peut être tester manuellement avec ces requêtes HTTP :
 
 ```shell
 # Afficher tous les menus
@@ -25,14 +41,7 @@ $ curl -XGET localhost:8080/menus
 $ curl -H "Content-Type: application/json"  -d '{"name": "Menu de Noel", "dishes": [{"name": "Céréales sur lait"}]}' http://localhost:8080/menus
 ```
 
+## Auteurs
 
-# Ligne de Commande
-
-Pour compiler le projet :
-```shell
-$ mvn verify
-```
-Pour lancer l'application :
-```shell
-java -jar
-```
+- Axel CHASSARD - étudiant en 3ème année de cycle ingénieur à l'ENSG-Géomatique.
+- Laura WENCLIK - étudiante en 3ème année de cycle ingénieur à l'ENSG-Géomatique. 
